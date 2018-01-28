@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.green4590.diversgui.application.MainController">
+  <items>
+      <ScrollPane fx:id="consolePane" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS">
+         <content>
+            <TextFlow fx:id="consoleFlow" maxWidth="342.0" minWidth="342.0" onMouseClicked="#consoleUpdater" prefHeight="767.0" prefWidth="342.0" />
+         </content>
+      </ScrollPane>
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="997.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Driver's view">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Group layoutX="499.0">
+                           <children>
+                              <ImageView fitHeight="280.0" fitWidth="499.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/FlickrField.png" />
+                                 </image>
+                              </ImageView>
+                              <RadioButton fx:id="leftBlue" layoutX="410.0" layoutY="68.0" mnemonicParsing="false" prefWidth="37.0" />
+                              <RadioButton fx:id="middleBlue" layoutX="366.0" layoutY="45.0" mnemonicParsing="false" prefWidth="37.0" />
+                              <RadioButton fx:id="rightBlue" layoutX="340.0" layoutY="31.0" mnemonicParsing="false" prefWidth="37.0" />
+                              <RadioButton fx:id="leftRed" layoutX="78.0" layoutY="131.0" mnemonicParsing="false" prefWidth="37.0" />
+                              <RadioButton fx:id="middleRed" layoutX="120.0" layoutY="153.0" mnemonicParsing="false" prefWidth="37.0" />
+                              <RadioButton fx:id="rightRed" layoutX="147.0" layoutY="168.0" mnemonicParsing="false" prefWidth="37.0" />
+                              <MenuButton fx:id="selected" layoutX="200.0" layoutY="224.0" mnemonicParsing="false" text="fucking select">
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#updateSelected" onMenuValidation="#updateSelected" text="driveIntoWall" />
+                                  	<MenuItem mnemonicParsing="false" onAction="#updateSelected" onMenuValidation="#updateSelected" text="driveIntoDriver" />
+                                  	<MenuItem mnemonicParsing="false" onAction="#updateSelected" onMenuValidation="#updateSelected" text="driveIntoOverdrive" />
+                                    <MenuItem mnemonicParsing="false" onAction="#updateSelected" onMenuValidation="#updateSelected" text="driveIntoPedestrians" />
+                                    <MenuItem mnemonicParsing="false" onAction="#updateSelected" onMenuValidation="#updateSelected" text="killAllEnemies" />
+                                    <MenuItem mnemonicParsing="false" onAction="#updateSelected" onMenuValidation="#updateSelected" text="resistanceIsFutile" />
+                                </items>
+                              </MenuButton>
+                           </children>
+                        </Group>
+                        <Text fill="#0d00ff" layoutX="294.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIMER" textAlignment="CENTER" wrappingWidth="204.80340576171875">
+                           <font>
+                              <Font size="61.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="timer" fill="RED" layoutX="353.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2:30" textAlignment="CENTER" wrappingWidth="86.00775146484375">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Text>
+                        <ImageView fx:id="liveView" fitHeight="476.0" fitWidth="670.0" layoutX="15.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="342.0" fitWidth="364.0" layoutX="695.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/movementFeedback.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="start" defaultButton="true" layoutX="371.0" layoutY="140.0" mnemonicParsing="false" onAction="#initiateTimer" text="start" />
+                     </children>
+                  </Pane>
+               </content></Tab>
+            <Tab disable="true" text="Debug" />
+            <Tab disable="true" text="Settings" />
+            <Tab disable="true" text="Edit Mode (DO NOT TOUCH)" />
+         </tabs>
+      </TabPane>
+  </items>
+</SplitPane>
